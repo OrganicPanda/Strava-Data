@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<title>Strava Data</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+	<style>
+		body 		{ padding-top:80px; word-wrap:break-word; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="page-header text-center">
+		<h1><span class="fa fa-anchor"></span> Profile Page</h1>
+		<a href="/logout" class="btn btn-default btn-sm">Logout</a>
+	</div>
+
+	<div class="row">
+
+		<!-- Strava INFORMATION -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3 class="text-info"><span class="fa fa-user"></span> Strava</h3>
+
+				<% if (user.strava.token) { %>
+					<p>
+						<strong>id</strong>: <%= user.strava.id %><br>
+						<strong>token</strong>: <%= user.strava.token %><br>
+						<strong>email</strong>: <%= user.strava.email %><br>
+						<strong>display name</strong>: <%= user.strava.displayName %>
+					</p>
+
+					<a href="/unlink/strava" class="btn btn-info">Unlink</a>
+				<% } else { %>
+					<a href="/connect/strava" class="btn btn-info">Connect Strava</a>
+				<% } %>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="text-center">
+		<p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
+		<p>Visit the <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">tutorial</a>.</p>
+	</div>
+
+</div>
+</body>
+</html>
